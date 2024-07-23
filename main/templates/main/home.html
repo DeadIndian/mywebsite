@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h1>All Lists</h1>
+
+<ul class="nav flex-column">
+	<!-- <li class="nav-item">
+    	<a class="nav-link" href="/1">{{ all_objects }}</a>
+  	</li> -->
+
+  	{% for td in user.todolist.all %}
+
+  		<li class="nav-item">
+    		<a class="nav-link" href="/{{td.id}}">{{ td.name }}</a>
+  		</li>
+				
+	{% endfor %}
+    
+</ul>
+
+{% endblock %}

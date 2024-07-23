@@ -1,0 +1,33 @@
+{% extends "main/base.html" %}
+
+{% block title %} Delete An Item In the list {% endblock %}
+
+{% block content %}
+<h3>Select an Item to Delete</h3>
+<form method = "post" action="#" >
+	{% csrf_token %}
+
+	<ul class="nav flex-column">
+	
+
+  	{% for item in ls.item_set.all %}
+
+  		<li class="nav-item">
+    		<input type="checkbox", value="clicked", name="c{{item.id}}" >{{item.text}}
+  		</li>
+
+
+				
+	{% endfor %}
+    
+</ul>
+	
+	<button type="submit" name="delete" value="delete">Delete</button>
+	<button type="submit" name="edit" value="edit">Edit</button>
+	<button type="submit" name="back" value="back">Back</button>
+</form>
+
+<!-- <button onclick="history.back()">Back</button> -->
+
+
+{% endblock %}

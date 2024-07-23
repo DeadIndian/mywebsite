@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+
+{% block title %} Create New List {% endblock %}
+
+{% block content %}
+<h3>Create New Check List</h3>
+<form method = "post" action="/create/" class="form-group">
+	{% csrf_token %}
+	{{form}}
+	<button type="submit" name="newlist" value="newlist">Create</button>
+</form>
+
+{% endblock %}

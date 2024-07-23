@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+
+{% block title %} Delete Exising List {% endblock %}
+
+{% block content %}
+<h3>Select a List to Delete</h3>
+<form method = "post" action="/delete/" >
+	{% csrf_token %}
+
+	<ul class="nav flex-column">
+	
+
+  	{% for obj in all_objects %}
+
+  		<li class="nav-item">
+    		<input type="checkbox", value="clicked", name="{{obj.id}}" >{{obj}}
+  		</li>
+
+
+				
+	{% endfor %}
+    
+</ul>
+	
+	<button type="submit" name="delete" value="delete">Delete</button>
+</form>
+{% endblock %}

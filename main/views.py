@@ -66,7 +66,10 @@ def create(response):
 
 
 def delete(response):
-	all_objects = ToDoList.objects.all()
+	# all_objects = ToDoList.objects.all()
+	all_objects = response.user.todolist.all()
+	# if all_objects in response.user.todolist.all():
+
 
 	if response.method == "POST":
 		if response.POST.get("delete"):
@@ -78,6 +81,8 @@ def delete(response):
 					pass
 
 	return render(response, "main/delete.html",{"all_objects":all_objects})
+
+	# return render(response, "main/delete.html",{})
 
 def edit(response,id):
 	ls = ToDoList.objects.get(id = id)
